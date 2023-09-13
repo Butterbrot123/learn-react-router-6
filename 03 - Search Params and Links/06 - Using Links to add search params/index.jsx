@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, useSearchParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useSearchParams } from "react-router-dom";
 
 const swCharacters = [
   { name: "Luke Skywalker", type: "Jedi" },
@@ -34,7 +34,9 @@ function HomePage() {
     <main>
       <h2>Home</h2>
       <div>
-        
+        <Link to="?type=jedi">Jedi</Link>
+        <Link to="?type=sith">Sith</Link>
+        <Link to=".">Clear</Link>
       </div>
       <hr />
       {charEls}

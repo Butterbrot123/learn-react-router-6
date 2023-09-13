@@ -12,8 +12,14 @@ const swCharacters = [
 function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const typeFilter = searchParams.get("type")
+
+  const displayedCharacters = typeFilter
+  ? swCharacters.filter(char => char.type.toLowerCase() === typeFilter)
+  : swCharacters
+
   
   const charEls = swCharacters
+  .filter()
     .map(char => (
       <div key={char.name}>
         <h3
