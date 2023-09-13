@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams} from "react-router-dom"
 
 export default function Vans() {
     /**
@@ -10,7 +10,12 @@ export default function Vans() {
      *    `searchParams` object) to a variable called `typeFilter`
      * 3. Log the value of the `typeFilter` to the console
      */
+    const [searchParams, setSearchparams] = useSearchParams()
     const [vans, setVans] = React.useState([])
+
+    const typeFilter = searchParams.get("type")
+    console.log(typeFilter)
+
     React.useEffect(() => {
         fetch("/api/vans")
             .then(res => res.json())
