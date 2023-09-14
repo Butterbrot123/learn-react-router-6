@@ -34,9 +34,9 @@ function HomePage() {
     <main>
       <h2>Home</h2>
       <div>
-        <Link to="?type=jedi">Jedi</Link>
-        <Link to="?type=sith">Sith</Link>
-        <Link to=".">Clear</Link>
+        <button onClick={() => setSearchParams({type: "jedi"})}>Jedi</button>
+        <button onClick={() => setSearchParams({type: "sith"})}>Sith</button>
+        <button onClick={() => setSearchParams({})}>Clear</button>
       </div>
       <hr />
       {charEls}

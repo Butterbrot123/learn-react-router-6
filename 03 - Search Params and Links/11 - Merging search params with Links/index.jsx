@@ -30,13 +30,27 @@ function HomePage() {
       </div>
     ))
 
+    function genNewSearchparamString(key, value) {
+         const sp = new URLSearchParams(searchParams)
+         if (value == null) {
+          sp.delete("type")
+         } else {
+          sp.set(key, value)
+         }
+         return `?${sp.toString()}`
+    }
+
+    function handleFilterChange() {
+      
+    }
+
   return (
     <main>
       <h2>Home</h2>
       <div>
-        <Link to="?type=jedi">Jedi</Link>
-        <Link to="?type=sith">Sith</Link>
-        <Link to=".">Clear</Link>
+        <Link to={genNewSearchparamString("type", "jedi")}>Jedi</Link>
+        <Link to={genNewSearchparamString("type", "sith")}>Sith</Link>
+        <Link to={genNewSearchparamString("type", null)}>Clear</Link>
       </div>
       <div>
         <button onClick={() => setSearchParams({ type: "jedi" })}>Jedi</button>
