@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Link, useSearchParams } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 
 function HomePage() {
   return (
@@ -10,14 +15,12 @@ function HomePage() {
   );
 }
 
+const router = createBrowserRouter(
+  createRoutesFromElements(<Route path="/" element={<HomePage />} />)
+);
+
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  return <RouterProvider router={router} />;
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
