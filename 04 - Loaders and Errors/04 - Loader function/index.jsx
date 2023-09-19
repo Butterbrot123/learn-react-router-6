@@ -7,10 +7,10 @@ import {
   Route
 } from "react-router-dom"
 
-import HomePage from "./Home"
+import HomePage, {loader as homePageLoader } from "./Home"
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<HomePage />} />
+  <Route path="/" element={<HomePage />} loader={homePageLoader}/>
 ))
 
 function App() {

@@ -24,6 +24,7 @@ import Login from "./pages/Login"
 import Layout from "./components/Layout"
 import HostLayout from "./components/HostLayout"
 import Error from "./components/Error"
+import { requireAuth } from './utils';
 
 import "./server"
 
@@ -51,9 +52,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route
         index
         element={<Dashboard />}
-        loader={async () => {
-          return null
-        }}
+        loader={async () => await requireAuth()}
       />
       <Route
         path="income"

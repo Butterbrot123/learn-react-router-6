@@ -1,5 +1,11 @@
 import React from "react"
 
+
+export function loader() {
+   return "The data is here"
+}
+
+
 export default function HomePage() {
   return (
     <main>
