@@ -23,10 +23,18 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<h1>Super secret info here</h1>}
       loader={async () => await requireAuth()}
     />
-    <Route path="login" element={<h1>Login page goes here</h1>} />
+    <Route path="login" element={<Login />} />
 
   </Route>
 ))
+
+function Login() {
+  return (
+    <>
+    <h1>Login page goes here</h1>
+    </>
+  )
+}
 
 function App() {
   return (
