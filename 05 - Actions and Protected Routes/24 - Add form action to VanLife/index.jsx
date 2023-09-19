@@ -36,6 +36,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       path="login"
       element={<Login />}
       loader={loginLoader}
+      action={loginAction}
     />
     <Route
       path="vans"
