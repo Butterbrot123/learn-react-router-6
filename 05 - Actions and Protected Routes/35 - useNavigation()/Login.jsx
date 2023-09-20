@@ -5,7 +5,13 @@ import {
     redirect
 } from "react-router-dom"
 
+function sleep(ms) {
+    return new Promise(resolve = setTimeout(resolve ,ms));
+}
+
+
 async function fakeLoginUser(creds) {
+    await sleep(1000)
     if (creds.email === "b@b.com" && creds.password === "p123") {
         localStorage.setItem("loggedin", true)
         return {
@@ -30,6 +36,9 @@ export async function action({ request }) {
 
 export default function Login() {
     const errorMessage = useActionData()
+    const navigation = useNavigation()
+    console.log(navigation.state)
+
     return (
         <Form method="post" replace>
             <h2>Login</h2>
@@ -46,7 +55,8 @@ export default function Login() {
                 placeholder="Password"
             />
             <br />
-            <button>Log in</button>
+            <button disabled={navigation.state === "submittting"}>
+                {navigation.state === "submitting" ? "Logging in ..."  : "Log in"}</button>
         </Form>
     )
 }

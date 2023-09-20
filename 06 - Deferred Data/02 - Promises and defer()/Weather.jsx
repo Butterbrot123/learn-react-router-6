@@ -3,8 +3,8 @@ import { useLoaderData } from "react-router-dom"
 import { sleep, getWeather } from "./utils"
 
 export async function loader() {
-    const weather = await getWeather()
-    return weather
+    const weatherPromise = getWeather()
+    return defer({weather: weatherPromise})
 }
 
 export default function Weather() {

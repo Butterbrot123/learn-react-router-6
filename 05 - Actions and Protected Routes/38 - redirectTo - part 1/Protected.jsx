@@ -4,7 +4,7 @@ import { requireAuth } from "./requireAuth"
 
 export async function loader({ request }) {
     const url = new URL(request.url)
-    await requireAuth()
+    await requireAuth(request)
     return null
 }
 

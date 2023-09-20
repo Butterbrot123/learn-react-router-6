@@ -27,8 +27,8 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route 
         path="nested" 
         element={<h1>Nested protected route</h1>} 
-        loader={async () => {
-          await requireAuth()
+        loader={async ({request}) => {
+          await requireAuth(request)
           return null
         }}
       />

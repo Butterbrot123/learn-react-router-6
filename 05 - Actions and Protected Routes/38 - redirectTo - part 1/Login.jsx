@@ -26,13 +26,18 @@ export async function action({ request }) {
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
+
+    const pathname = new URL(request.url).searchParams.get("redirectTo")
+    console.log(pathname)
     try {
         const user = await fakeLoginUser({ email, password })
-        return redirect("/protected")
+        return redirect(pathname)
     } catch (err) {
         return err.message
     }
 }
+
+
 
 export default function Login() {
     const errorMessage = useActionData()
